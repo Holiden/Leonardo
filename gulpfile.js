@@ -36,24 +36,24 @@ var paths = {
       './source/views/pages/*.html'
     ],
     build: './build/',
-    watch: [
-      './source/blocks/**/*.html',
-      './source/views/**/*.html'
+    watch: ['./source/**/*.html'
+      // './source/components/**/*.html',
+      // './source/views/**/*.html'
     ]
   },
   styles: {
     source: './source/styles/main.{css,sass,scss}',
     build: './build/styles/',
     watch: [
-      './source/blocks/**/*.{css,sass,scss}',
+      './source/components/**/*.{css,sass,scss}',
       './source/styles/**/*.{css,sass,scss}'
     ]
   },
   scripts: {
-    source: './source/scripts/main.js',
+    source: './source/scripts/**/*.js',
     build: './build/scripts/',
     watch: [
-      './source/blocks/**/*.js',
+      './source/components/**/*.js',
       './source/scripts/**/*.js'
     ]
   },
@@ -296,41 +296,41 @@ function sprites() {
     .pipe(rename({
       prefix: 'icon_'
     }))
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [
-          {cleanupAttrs: true},
-          {cleanupNumericValues: {
-            floatPrecision: 0
-            }
-          },
-          {collapseGroups: true},
-          {convertEllipseToCircle: true},
-          {convertShapeToPath: true},
-          {mergePaths: true},
-          {minifyStyles: true},
-          {removeAttrs: {
-            attrs: [
-              'clip.*',
-              'fill.*',
-              'stroke.*'
-            ]},
-            preserveCurrentColor: true
-          },
-          {removeComments: true},
-          {removeDesc: true},
-          {removeDoctype: true},
-          {removeEditorsNSData: true},
-          {removeEmptyAttrs: true},
-          {removeEmptyContainers: true},
-          {removeEmptyText: true},
-          {removeHiddenElems: true},
-          {removeMetadata: true},
-          {removeTitle: true},
-          {removeXMLProcInst: true}
-        ]
-      })
-    ]))
+    // .pipe(imagemin([
+    //   imagemin.svgo({
+    //     plugins: [
+    //       {cleanupAttrs: true},
+    //       {cleanupNumericValues: {
+    //         floatPrecision: 0
+    //         }
+    //       },
+    //       {collapseGroups: true},
+    //       {convertEllipseToCircle: true},
+    //       {convertShapeToPath: true},
+    //       {mergePaths: true},
+    //       {minifyStyles: true},
+    //       {removeAttrs: {
+    //         attrs: [
+    //           'clip.*',
+    //           'fill.*',
+    //           'stroke.*'
+    //         ]},
+    //         preserveCurrentColor: true
+    //       },
+    //       {removeComments: true},
+    //       {removeDesc: true},
+    //       {removeDoctype: true},
+    //       {removeEditorsNSData: true},
+    //       {removeEmptyAttrs: true},
+    //       {removeEmptyContainers: true},
+    //       {removeEmptyText: true},
+    //       {removeHiddenElems: true},
+    //       {removeMetadata: true},
+    //       {removeTitle: true},
+    //       {removeXMLProcInst: true}
+    //     ]
+    //   })
+    // ]))
     .pipe(svgstore({
       inlineSvg: true
     }))

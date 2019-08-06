@@ -1,4 +1,4 @@
-# Leondardo
+# Leonardo
 ![Publication Date](https://img.shields.io/static/v1?label=Release%20Date&message=05.08.2019&color=brightgreen&style=flat-square)
 
 Кроссбраузерный лендинг
