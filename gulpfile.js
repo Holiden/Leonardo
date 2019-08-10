@@ -36,9 +36,9 @@ var paths = {
       './source/views/pages/*.html'
     ],
     build: './build/',
-    watch: ['./source/**/*.html'
-      // './source/components/**/*.html',
-      // './source/views/**/*.html'
+    watch: [
+      './source/components/**/*.html',
+      './source/views/**/*.html'
     ]
   },
   styles: {
@@ -50,7 +50,7 @@ var paths = {
     ]
   },
   scripts: {
-    source: './source/scripts/**/*.js',
+    source: './source/scripts/main.js',
     build: './build/scripts/',
     watch: [
       './source/components/**/*.js',
@@ -100,11 +100,9 @@ var paths = {
 
 function views() {
   return gulp.src(paths.views.source)
-    .pipe(newer(paths.views.build))
     .pipe(plumber({errorHandler: notify.onError({
       message: 'Error: <%= error.message %>',
-      title: 'HTML Error',
-      wait: true
+      title: 'HTML Error'
       }),
       function() {
       this.emit('end');
@@ -128,11 +126,9 @@ function views() {
 
 function styles() {
   return gulp.src(paths.styles.source)
-    .pipe(newer(paths.styles.build))
     .pipe(plumber({errorHandler: notify.onError({
       message: 'Error: <%= error.message %>',
-      title: 'CSS Error',
-      wait: true
+      title: 'CSS Error'
       }),
       function() {
       this.emit('end');
@@ -175,11 +171,9 @@ function styles() {
 
 function scripts() {
   return gulp.src(paths.scripts.source)
-    .pipe(newer(paths.scripts.build))
     .pipe(plumber({errorHandler: notify.onError({
       message: 'Error: <%= error.message %>',
-      title: 'JS Error',
-      wait: true
+      title: 'JS Error'
       }),
       function() {
       this.emit('end');
