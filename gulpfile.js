@@ -13,6 +13,7 @@ var replace = require('gulp-replace');
 var plumber = require('gulp-plumber');
 var argv = require('yargs').argv;
 var htmlmin = require('gulp-htmlmin');
+var concat = require('gulp-concat');
 var purgecss = require('gulp-purgecss');
 var gcmq = require('gulp-group-css-media-queries');
 var imagemin = require('gulp-imagemin');
@@ -50,7 +51,7 @@ var paths = {
     ]
   },
   scripts: {
-    source: './source/scripts/main.js',
+    source: './source/scripts/**/*.js',
     build: './build/scripts/',
     watch: [
       './source/components/**/*.js',
@@ -180,6 +181,7 @@ function scripts() {
       }
     }))
     .pipe(gulpif(argv.dev, sourcemaps.init()))
+    .pipe(concat('main.js'))
     .pipe(gulpif(argv.build, uglify()))
     .pipe(gulpif(argv.build, rename({
       suffix: '.min'
