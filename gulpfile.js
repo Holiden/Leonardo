@@ -292,41 +292,41 @@ function sprites() {
     .pipe(rename({
       prefix: 'icon_'
     }))
-    // .pipe(imagemin([
-    //   imagemin.svgo({
-    //     plugins: [
-    //       {cleanupAttrs: true},
-    //       {cleanupNumericValues: {
-    //         floatPrecision: 0
-    //         }
-    //       },
-    //       {collapseGroups: true},
-    //       {convertEllipseToCircle: true},
-    //       {convertShapeToPath: true},
-    //       {mergePaths: true},
-    //       {minifyStyles: true},
-    //       {removeAttrs: {
-    //         attrs: [
-    //           'clip.*',
-    //           'fill.*',
-    //           'stroke.*'
-    //         ]},
-    //         preserveCurrentColor: true
-    //       },
-    //       {removeComments: true},
-    //       {removeDesc: true},
-    //       {removeDoctype: true},
-    //       {removeEditorsNSData: true},
-    //       {removeEmptyAttrs: true},
-    //       {removeEmptyContainers: true},
-    //       {removeEmptyText: true},
-    //       {removeHiddenElems: true},
-    //       {removeMetadata: true},
-    //       {removeTitle: true},
-    //       {removeXMLProcInst: true}
-    //     ]
-    //   })
-    // ]))
+    .pipe(imagemin([
+      imagemin.svgo({
+        plugins: [
+          {cleanupAttrs: true},
+          {cleanupNumericValues: {
+            floatPrecision: 0
+            }
+          },
+          {collapseGroups: true},
+          {convertEllipseToCircle: true},
+          {convertShapeToPath: true},
+          {mergePaths: true},
+          {minifyStyles: true},
+          {removeAttrs: {
+            attrs: [
+              'clip.*',
+              'fill.*',
+              'stroke.*'
+            ]},
+            preserveCurrentColor: true
+          },
+          {removeComments: true},
+          {removeDesc: true},
+          {removeDoctype: true},
+          {removeEditorsNSData: true},
+          {removeEmptyAttrs: true},
+          {removeEmptyContainers: true},
+          {removeEmptyText: true},
+          {removeHiddenElems: true},
+          {removeMetadata: true},
+          {removeTitle: true},
+          {removeXMLProcInst: true}
+        ]
+      })
+    ]))
     .pipe(svgstore({
       inlineSvg: true
     }))
